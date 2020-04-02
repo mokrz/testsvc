@@ -5,7 +5,7 @@ import (
 )
 
 func TestTestMe(t *testing.T) {
-	if TestMe(4)/2 != 4 {
+	if TestMe(4)/3 != 4 {
 		t.Error("Expected 4")
 	}
 }
