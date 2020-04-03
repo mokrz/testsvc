@@ -37,6 +37,6 @@ jobs:
         git add --force --ignore-errors package.json
         git commit -m "Testing"
         git tag plswork
-        git push --tags https://mokrz:$GH_TOKEN@github.com/mokrz/testsvc.git HEAD:staging
+        git push --tags https://mokrz:$GH_TOKEN@github.com/mokrz/testsvc.git HEAD:master
       env:
         GH_TOKEN: "${{ secrets.ADMIN_PERSONAL_ACCESS_TOKEN }}"
