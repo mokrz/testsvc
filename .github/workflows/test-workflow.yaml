@@ -32,6 +32,7 @@ jobs:
       run: |
         git config --global user.email "testing@test.com"
         git config --global user.name "Test Testerson"
+        git pull
         echo '{}' > package.json
         git add --force --ignore-errors package.json
         git commit -m "Testing"
