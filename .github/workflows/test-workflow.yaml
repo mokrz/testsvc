@@ -27,16 +27,3 @@ jobs:
 
     - name: go build
       run: go build -v .
-
-    - name: Testing
-      run: |
-        git config --global user.email "testing@test.com"
-        git config --global user.name "Test Testerson"
-        git pull
-        echo '{}' > package.json
-        git add --force --ignore-errors package.json
-        git commit -m "Testing"
-        git tag plswork
-        git push --tags https://mokrz:$GH_TOKEN@github.com/mokrz/testsvc.git HEAD:master
-      env:
-        GH_TOKEN: "${{ secrets.ADMIN_PERSONAL_ACCESS_TOKEN }}"
