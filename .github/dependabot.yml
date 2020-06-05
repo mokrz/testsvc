@@ -1,0 +1,8 @@
+---
+version: 2
+
+updates:
+  - package-ecoystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "daily"
