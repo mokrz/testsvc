@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: testing
-      uses: actions/http-client@master
-      with:
-        url: https://google.com
+      run: |
+        wget https://github.com/containerd/containerd/archive/v1.3.4.zip
+        unzip v1.3.4.zip 
