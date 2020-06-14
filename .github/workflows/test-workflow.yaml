@@ -11,7 +11,7 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-    - name: testig
+    - name: testing
       uses: actions/http-client
       with:
-        url: "https://google.com"
+        url: https://google.com
