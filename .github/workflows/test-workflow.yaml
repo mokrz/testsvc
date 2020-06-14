@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: testing
-      uses: actions/http-client
+      uses: actions/http-client@master
       with:
         url: https://google.com
