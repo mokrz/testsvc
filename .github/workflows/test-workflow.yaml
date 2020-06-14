@@ -22,10 +22,13 @@ jobs:
     - name: Install/start containerd
       run: |
         sudo sh -c 'tar -xvz -f /tmp/containerd-1.3.4.linux-amd64.tar.gz -C /usr/local/ && mkdir -p /etc/containerd/ && containerd config default > /etc/containerd/config.toml was && chmod +x /usr/local/bin/containerd* /usr/local/bin/ctr'
-        sudo containerd &
+        sudo containerd > /tmp/containerd.log &
     
     - name: Checkout
       uses: actions/checkout@v2
+    
+    - name: Cat containerd logs
+      run: cat /tmp/containerd.log
     
     - name: go get
       run: go get -v -t -d ./...
