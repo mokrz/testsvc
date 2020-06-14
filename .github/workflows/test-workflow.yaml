@@ -35,6 +35,6 @@ jobs:
     
     - name: Run tests
       run: |
-        sudo go test -v ./...
+        sudo go test -p 1 -v ./...
 
 
