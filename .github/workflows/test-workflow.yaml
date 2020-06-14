@@ -21,8 +21,7 @@ jobs:
         unzip v1.3.4.zip
         ls
         curl -L --output containerd-1.3.4.linux-amd64.tar.gz https://github.com/containerd/containerd/releases/download/v1.3.4/containerd-1.3.4.linux-amd64.tar.gz
-        sudo tar -xvz -f containerd-1.3.4.linux-amd64.tar.gz -C /usr/local/bin/
-        sudo sh -c 'containerd config default > /etc/containerd/config.toml'
+        sudo sh -c 'tar -xvz -f containerd-1.3.4.linux-amd64.tar.gz -C /usr/local/bin/ && mkdir -p /etc/containerd/ && containerd config default > /etc/containerd/config.toml'
         ls /usr/local/bin/
         cat /etc/containerd/config.toml
         
