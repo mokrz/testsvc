@@ -1,6 +1,6 @@
 package main
 
-// this is just a dummy modification so we can test a commit
+// This is just a dummy modification so we can test a commit
 
 import (
 	"bytes"
