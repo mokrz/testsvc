@@ -1,0 +1,13 @@
+---
+name: Test Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  - name: Checkout Repo
+    uses: actions/checkout@v2
+    with:
+      ssh-key: ${{ secrets.DEPLOY_KEY }}
