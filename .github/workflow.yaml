@@ -4,7 +4,7 @@ name: Test Workflow
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   - name: Checkout Repo
