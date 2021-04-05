@@ -6,8 +6,6 @@ on:
 
 jobs:
   test-job:
-    container:
-      options: --rm
     runs-on: ubuntu-latest
     steps:
       - name: checkout
