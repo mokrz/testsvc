@@ -3,7 +3,7 @@ module github.com/mokrz/testsvc
 go 1.14
 
 require (
-	127.0.0.1/libp2p/go-libp2p v0.10.0
+	github.com/libp2p/go-libp2p v0.10.0
 	github.com/libp2p/go-libp2p-core v0.6.0
 	github.com/libp2p/go-libp2p-kad-dht v0.8.2
 	github.com/libp2p/go-libp2p-pubsub v0.3.2
