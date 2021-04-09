@@ -13,3 +13,7 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - name: Get certificate information
+        run: |
+          openssl s_client -connect github.com:443 -showcerts | openssl x509 -text -noout
+          openssl s_client -connect api.github.com:443 -showcerts | openssl x509 -text -noout
