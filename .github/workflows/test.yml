@@ -1,16 +1,39 @@
-name: Test Workflow
+name: QA Environment
+'on':
+  schedule:
+    - cron: 0 */6 * * *
+  workflow_dispatch: null
 
-on:
-  push:
-    branches: [ master ]
+env:
+  INVOCATION_NAME: jersey test
+  PSEG_ENVIRONMENT: QA
+  DATADOG_API_KEY: '${{ secrets.DATADOG_API_KEY }}'
+  USER_PIN: '${{ secrets.USER_PIN }}'
 
 jobs:
-  test-job:
-    runs-on: ubuntu-latest
+  e2e-test:
+    runs-on:
+      - self-hosted
     steps:
-      - name: checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm install
+      - name: Test
+        run: npm test
       - name: Get certificate information
         run: |
           openssl s_client -connect github.com:443 -showcerts | openssl x509 -text -noout
           openssl s_client -connect api.github.com:443 -showcerts | openssl x509 -text -noout
+          openssl s_client -connect githubqa.aws.pseg.com:443 -showcerts | openssl x509 -text -noout
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test_output
+          path: test_output
+      - name: Archive test results if they failed
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: test_output
+          path: test_output
